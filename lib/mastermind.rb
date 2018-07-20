@@ -1,9 +1,10 @@
 class Mastermind
-attr_reader     
-THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
+
+    THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
 
     def initialize
-        @generated_code = [] 
+        @generated_code = []
+        @guess = '' 
     end
 
     def reveal_user_instructions 
@@ -20,7 +21,24 @@ THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
     end 
 
     def generate_colour_code
-        THE_COLOURS = @generated_code.sample(4)
+        @generated_code = THE_COLOURS.sample(4)
+        p @generated_code
+    end
+
+    def user_guesses
+        @guess = gets.chomp
+    end
+
+    def comparing_user_guesses
+        @guess == @generated_code
+    end
+
+    def user_feedback
+        if @guess.split(//) == @generated_code
+            puts "NICE. You've won the game. ^_^"
+        else
+            puts "NO. You've lost. Get out of here, loser. :P"
+        end
     end
 
 
