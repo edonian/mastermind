@@ -1,6 +1,6 @@
 class Mastermind
-attr_reader     
-THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
+
+    THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
 
     def initialize
         @generated_code = []
@@ -31,6 +31,14 @@ THE_COLOURS = ["b", "o", "r", "p", "g", "y"]
 
     def comparing_user_guesses
         @guess == @generated_code
+    end
+
+    def user_feedback
+        if @guess.split(//) == @generated_code
+            puts "NICE. You've won the game. ^_^"
+        else
+            puts "NO. You've lost. Get out of here, loser. :P"
+        end
     end
 
 
